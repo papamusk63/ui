@@ -1,0 +1,92 @@
+
+##################################################
+# This instruction guides you throug the process #
+# of setting up the status pages		 #
+################################################## 
+$HOSTNAME represents the hostname of the server
+$HOST_IP represents the host ip address of the server
+
+chmod 755 install.sh
+./install.sh
+
+# ! AS ROOT !
+# MOVE FOLLOWING FILES TO: 
+masterlog.php -> /var/www/cgi-bin/
+results_index.php -> /var/www/cgi-bin/
+
+###########################################
+# CONFIGURE '/etc/php.ini' #
+###########################################
+# LOOK FOR THE FOLLOWING ENTRIES,         #
+# AND MODIFY TO THE CORRESPONDING VALUES  #
+###########################################
+# LOOK FOR ;cgi.force_redirect=1
+cgi.force_redirect=0;
+
+###########################################
+# CONFIGURE '/etc/httpd/conf/httpd.conf/' #
+###########################################
+# LOOK FOR THE FOLLOWING ENTRIES, 	  #
+# AND MODIFY TO THE CORRESPONDING VALUES  #
+###########################################
+1. DocumentRoot /$HOSTNAME
+
+2. 
+#
+# Each directory to which Apache has access can be configured with respect
+# to which services and features are allowed and/or disabled in that
+# directory (and its subdirectories).
+#
+# First, we configure the "default" to be a very restrictive set of
+# features.
+#
+<Directory /$HOSTNAME>
+    Options FollowSymLinks Indexes ExecCGI
+    AllowOverride All
+</Directory>
+
+3.
+#
+# This should be changed to whatever you set DocumentRoot to.
+#
+<Directory "/$HOSTNAME">
+
+4. 
+#
+#    Options Indexes FollowSymLinks
+Options Indexes FollowSymLinks ExecCGI
+
+5. ScriptAlias /cgi-bin/ "/var/www/cgi-bin/"
+
+6. 
+#
+# "/var/www/cgi-bin" should be changed to whatever your ScriptAliased
+# CGI directory exists, if you have that configured.
+#
+<Directory "/var/www/cgi-bin">
+    AllowOverride None
+    Options None
+    Order allow,deny
+    Allow from all
+</Directory>
+
+7. AddHandler cgi-script .cgi
+
+############################################################
+8. ADD THE FOLLOWING TO THE END OF THE FILE
+############################################################
+ScriptAliasMatch ^(/results/.*)/masterlog.php /var/www/cgi-bin/masterlog.php
+
+<Directory  /$HOSTNAME/results/200[456789]/Month_[0-9]*/[A-Z][a-z]*_[0-9]* >
+        Options All
+        DirectoryIndex /cgi-bin/results_index.php
+</Directory>
+
+<Directory  /$HOSTNAME/results/200[456789]/Month_[0-9]*/[A-Z][a-z]*_[0-9]*/* >
+        DirectoryIndex index.html
+</Directory>
+
+<Directory  /$HOSTNAME/jobs/ >
+        DirectoryIndex jobs_index.php
+</Directory>
+

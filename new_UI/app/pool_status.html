@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="30">
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a id="title" class="brand" href="#">VSD Pool</a>
+        </div>
+    </div>
+    <div id="main" class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Status</th>
+                        <th scope="col">Resources</th>
+                        <th scope="col">Action</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <!-- ko foreach: resources -->
+                <tr>
+                    <td>
+                        <span data-bind="visible: comment() == 'Ready' && !owner()" class="label label-success"><span data-bind="text: comment()"></span></span>
+                        <span data-bind="visible: comment() != 'Ready' && !owner()" class="label label-warning"><span data-bind="text: comment()"></span></span>
+                        <span data-bind="visible: maintenance()" class="label label-warning">Used</span></span>
+                        <span data-bind="visible: owner()" class="label label-info"><span data-bind="text: owner()"></span></span>
+                    </td>
+                    <td><p><b data-bind="text: title"></b> <br><span data-bind="text: description"></span></td>
+
+                    <td>
+                            <span data-bind="visible: !owner() &&  comment() != 'Recycling'">
+                                <button data-bind="click: $parent.recycle" class="btn">Recycle</button>
+                            </span>
+                    </td>
+
+                </tr>
+                <!-- /ko -->
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        // Use to get args from URL
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        function ResourcesViewModel() {
+            var self = this;
+            self.api = getParameterByName("url")
+            self.pool = getParameterByName("pool")
+            self.resourcesURI = self.api + "/pools/" + self.pool + "/resources";
+            self.resources = ko.observableArray();
+            document.title = "Pool status for " + self.pool
+            document.getElementById("title").text = document.title
+
+            self.ajax = function(uri, method, data) {
+                var request = {
+                    url: uri,
+                    type: method,
+                    contentType: "application/json",
+                    accepts: "application/json",
+                    cache: false,
+                    dataType: 'json',
+                    data: JSON.stringify(data)
+                };
+                return $.ajax(request);
+            }
+            // if the resource is aquired at not null fetch the owner
+            function owner(res) {
+                if (res.acquiredAt != null) {
+                    return self.ajax(`${self.api}/resources/${res.name}/owner`, 'GET');
+                }
+                return $.Deferred().resolve(null);
+            }
+
+            self.ajax(self.resourcesURI, 'GET').success(function(resources) {
+                resources.forEach(function(resource){
+                    owner(resource).done(function(ownerData) {
+                        self.resources.push({
+                            title: ko.observable(resource.name),
+                            description: ko.observable(resource.description),
+                            comment: ko.observable(resource.comment),
+                            maintenance: ko.observable(resource.maintenance),
+                            owner: ko.observable(ownerData ? ownerData.name: null)
+                        });
+                    });
+                });
+            });
+
+            self.recycle = function(resources) {
+                // to set a resource as recycle we just need to mark it as used
+                self.ajax(self.api + "/resources/" + resources.title(), 'PUT', {'maintenance': true, 'comment': "Recycle"}).done();
+            }
+        }
+
+        //$().ready(function() {
+            ko.applyBindings(new ResourcesViewModel(), $('#main')[0]);
+        //});
+    </script>
+</body>
+</html>

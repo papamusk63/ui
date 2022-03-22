@@ -1,0 +1,87 @@
+
+body, table, p, div, td, th
+{
+	font-family: arial;
+}
+
+/* table */
+table
+{	
+	border: 0;
+	width: 100%;
+}
+
+/* for test_console & masterlog */
+img { border: 0; }
+.test_console { margin-left: 15; }
+.masterlog { margin-left: 15; }
+
+
+/* td & th */
+th { background: #FAF0E6 center; color: #8B0000; font-weight: bold; font-size: 12pt; }
+td { background: #F5F5F5 center; color: #483D8B; font-size: 12pt; }
+.note { color: #483D8B; font-weight: bold; font-size: 10pt; }
+.star { color: #8B0000; font-weight: bold; font-size: 12pt; }
+.check { margin-left: 15px; }
+.dir   { margin-left: 15px; }
+
+/* big  titles */
+.title	
+{	
+	background: #FAF0E6;
+	color: #FF4500; font-weight: bold; font-size: 18pt; 
+}
+
+.title_bar {font-family: Arial, sans-serif; font-size: 12px; color: #666666; background-color: #ddddff; text-align: center;}
+.title_bar_2 {font-family: Arial, sans-serif; font-size: 12pt; color: #FF4500; background-color: #999999; text-align: center;}
+
+.content {background: #FFFFFF url("../img/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 10pt; color: #333333; text-align: center; }
+.content_2 {background: #FFFFFF url("../img/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 12pt; color: #333333; margin-left: 30px;}
+.content_center {background: #FFFFFF url("../img/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 12px; color: #333333; text-align: center;}
+
+
+/* size of each column */
+.test_run	{ width: 35%;  }
+.masterlog	{ width: 5%;   }
+.version	{ width: 10%;  }
+.arg		{ width: 25%;  }
+.result		{ width: 25%;  }
+.arg_c		{ background: #F5F5F5; color:#483D3B; font-size: 10pt; }
+
+/* for the result column */
+.pass	{ background: #F5F5F5; color: green; font-weight: bold; font-size: 12pt;  }
+.fail	{ background: #F5F5F5; color: red;	 font-weight: bold; font-size: 12pt;  }
+.skip	{ background: #F5F5F5; color: gray;	 font-weight: bold; font-size: 12pt;	  }
+.pending{ background: #F5F5F5; color: #B0C4DE; font-size: 12pt;	 }
+
+/* for the result column */
+.pass_1	{ background: #F5F5F5; color: green;  font-size: 10pt; font-weight: bold;}
+.fail_1	{ background: #F5F5F5; color: red;  font-size: 10pt;  font-weight: bold;}
+.skip_1	{ background: #F5F5F5; color: gray;  font-size: 10pt;font-weight: bold;	  }
+.pending_1{ background: #F5F5F5; color: #B0C4DE;  font-size: 10pt; text-align: left; margin-left: 15;  }
+.time   { background: #F5F5F5; color: #FF4500; font-size: 10pt; text-align: center; }
+.current {font-family: Arial, sans-serif; font-size: 11px; color: #666666; text-align: center;};
+.current_p { color: #333333; font-size: 11pt;  background: #FFFFFF url("../img/bg.gif") repeat; font-family: Arial, sans-serif; text-align: center; }
+
+
+
+.top {   background: #FFFFFF url("../img/bg.gif") repeat ; color: #333333; font-weight: bold; font-size: 12pt; margin-left: 10px; }
+.top_2 {   background: #333333 ; color: #FFFFFF; font-weight: bold; font-size: 12pt; margin-left: 10px; }
+
+
+
+a:link    { color:#483D8B}
+a:visited { color:#8B0000}
+a:active  {background: #E6E6FA; color:#333333}
+a:hover   {background: #E6E6FA; color:#333333}
+
+/*
+.test_failed	{ background: #F5F5F5 url('http://spr1/status/masterlog/img/failed.png') no-repeat center;  }
+.test_passed	{ background: #F5F5F5 url('http://spr1/status/masterlog/img/check.png') no-repeat center; }
+.test_failed_2	{ background: #F5F5F5 url('http://spr1/status/masterlog/img/failed_d.png') no-repeat center;  }
+*/
+
+
+
+
+

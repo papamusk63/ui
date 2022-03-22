@@ -1,0 +1,50 @@
+Phase 1(foundation):
+Define Flask server and folder structure
+jobs_index.php
+XML_RPC.php
+serverFunctions.php
+common_func.php
+read_masterlog2.php
+time_left.php
+
+At the end of phase 1 - the jobs page works fine, with job running/paused state. And the REST api functions correctly
+
+
+
+Phase 2(buildup):
+Setup WSGI and HTTPD configurations, add to puppet
+Setup Virtual environment configuration and make it work together with pygash virtualenv
+read_masterlog.php - Should be renamed so it's easier to distinguish from read_masterlog2
+masterlog_list.php, masterlog_list2.php - These two might be same, should be handled by same person
+masterlog.php, masterlog2.php - These two might be same as well as redundant with masterlog_list.php
+
+At the end of phase 2 - masterlog pages work, No need to manually configure bed to run the new_UI, puppet configuration is enough, Code is tight, few bugs, html pages have a template and hierarchy, new_UI errors are monitorable separately in a new file
+
+
+
+Phase 3(coverage):
+result.php
+results_index.php
+livesearch.php
+Rewrite all .cgi files - as flask API calls
+ip_list.php
+login.php
+server.php
+All sites PHP files - Antwerp, Bratislava, Kanata, MtnView,  Naperville, NuageAnt, NuageBa, NuageMv, NuageRa, genericSite.php
+Status page - beds_status.php, index.php
+comparepage.php
+nav_bar.php
+
+At the end of Phase 3 - The whole website works under the link /new_UI. No external dependency apart from static files, codebase has fewer bugs, and can be launched into beta testing mode(invite users to start using it)
+
+
+
+Phase 4(finish & addons):
+Write ansible configuration for the puppet counterpart
+API to submit a regression
+Decouple from /usr/global
+Create a standalone TESTBED CONTROL DASHBOARD(could be hosted on nagios) using this same codebase
+UI additions such as Testbed performance history, Infra issue history, etc.(TBD..) - e.g. infra dashboard viz could be integrated into bed status page
+A brand new testbed status page
+UI CSS changes(TBD..)
+Other changes TBD..

@@ -1,0 +1,4 @@
+
+.treeNode {
+	text-decoration: none; 	background: #FFFFFF url("../images/bg.gif") repeat; color: #333333; font-family: Arial; font-weight: bold; font-size: 10pt; margin-left: 10px;
+}

@@ -1,0 +1,120 @@
+
+body, table, p, div, td, th
+{
+	font-family: arial;
+}
+
+/* table */
+table
+{	
+	border: 0;
+	width: 100%;
+}
+
+/* for test_console & masterlog */
+img { border: 0; }
+.test_console { margin-left: 15; }
+.masterlog { margin-left: 15; }
+
+
+/* td & th */
+th { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; color: #666666; background-color: #ddddff; text-align: center;}
+td { background: #F5F5F5; color: #483D8B; font-size: 10pt; }
+.star { color: #8B0000; font-weight: bold; font-size: 12pt; }
+
+/* big  titles */
+.title	
+{	
+	background: #FAF0E6;
+	color: #FF4500; font-weight: bold; font-size: 22pt; 
+}
+.title_2
+{
+	background: #FAF0E6;
+	color: #8B0000; font-weight: bold; font-size: 14pt; width: 20%;
+}
+.title_3
+{
+	background: #F5F5F5;
+
+}
+.time 
+{
+	background: #FAF0E6;
+	color:#FF4500; font-weight: bold; font-size: 14pt;
+}
+
+/* for the sub title/content */
+.sub_title { color: #8B0000; font-size: 12pt; width: 30%; }
+.sub_content { color: #483D8B; font-size: 12pt; width: 70%;}
+
+
+/* font attributes for text within the test result section */
+.type, .name, .tc, .ml, .eta, .elapsed, result { color: #8B0000; font-weight: bold; font-size: 12pt;  }
+
+.top {   background: #FFFFFF url("../img/bg.gif") repeat ; color: #333333; font-weight: bold; font-size: 12pt; margin-left: 10px; vertical-align: middle;}
+.top_1 {  background: #FFFFFF url("../img/bg.gif") repeat; color: #333333; font-weight: bold; font-size: 8pt; margin-left: 10px; vertical-align: middle;}
+.top_2 {  background: #FFFFFF url("../img/bg.gif"); color: #333333; font-weight: bold; font-size: 10pt; margin-left: 10px; vertical-align: middle;}
+
+/* size of each column */
+.suite_1, .type, test_1 { width: 20%; }
+.suite_2, .name, .test_2 { width: 36%;  }
+.suite_3, .tc, .test_3 { width: 4%;  }
+.suite_4, .ml, .test_4 { width: 4%;  }
+.suite_5, .eta, .test_5 { width: 10%;  }
+.suite_6, .elapsed, .test_6 { width: 10%;  }
+.result { width: 16%; }
+
+/* for the first column, which is usually the name/type/number of the test/suite */
+.test_1 { color: #8B0000; font-size: 12pt; }
+
+/* for the test_console log and masterlog columns */
+.test_3, .test_4, .suite_3, .suite_4 
+{ 
+	background: #F5F5F5 no-repeat center;
+}
+
+/* for the test suite row */
+.suite_1, .suite_2, .suite_3, .suite_4, .suite_5, .suite_6
+{
+	background: #FFFFFF center; color: #8B0000; font-size: 12pt; font-weight: bold; 
+}
+
+/* for the result column */
+.suite_passed	{ background: #FFFFFF; background-position: center; color: green; font-weight: bold; font-size: 12pt;  }
+.suite_failed	{ background: #FFFFFF; background-position: center; color: red; font-weight: bold; font-size: 12pt;  }
+.suite_processing	{ background: #FFFFFF center; color: green; font-size: 8pt; }
+.processing		{ background: #F5F5F5 center; color: green; font-size: 8pt; }
+.error			{ background: #F5F5F5 center; color: red; font-size: 9pt; }
+.test_failed	{ background: #F5F5F5 url('../img/failed.png') no-repeat center;  }
+.test_passed	{ background: #F5F5F5 url('../img/check.png') no-repeat center; }
+.test_na    { background: #F5F5F5 url('../img/na.png') no-repeat center; }
+.proc_failed    { background: #F5F5F5 url('../img/proc_fail.png') no-repeat center;  }
+.proc_passed    { background: #F5F5F5 url('../img/proc_pass.png') no-repeat center; }
+
+.processing {background: #FFFFFF url("../img/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 11pt; color: green;}
+
+.skipped		{ background: #F5F5F5 center; color: gray; font-size: 8pt; }
+.failed_msg {font-size: 8pt; text-align: center; }
+
+._small {background: #FFFFFF url("../img/bg.gif") repeat; color: #333333; font-size: 8pt; margin-left: 10px; vertical-align: middle; text-align: center;}
+._small_title {font-family: Arial, sans-serif; font-size: 10pt; color: #FFFFFF; background-color: #808080; text-align: center;}
+.title_bar {font-family: tahoma; font-size: 12px; color: #FFFFFF; background-color: #7B37B3; font-weight: bold; text-align: center;}
+.title_bar_small {font-family: tahoma; font-size: 10px; color: #FFFFFF; background-color: #6E7B8B; font-weight: bold; text-align: center;}
+.titleFontClass {font-family: Arial, sans-serif; font-size: 12px; color: #666666; background-color: #ddddff;}
+ .title_bar {font-family: Arial, sans-serif; font-size: 10pt; color: #FFFFFF; background-color: #7347AD; font-weight: bold; text-align: center;}
+ .normal {background: #FFFFFF; color: #7347AD; font-size: 10pt; margin-left: 10px; vertical-align: middle; text-align: center; }
+ .normal_hl { background: #FFFFFF; color: #FF4500; font-size: 11pt; margin-left: 10px; font-weight: bold; vertical-align: middle; text-align: center; }
+ .normal_med {background: #FFFFFF; color: #7347AD; font-size: 11pt; margin-left: 10px; font-weight: bold; vertical-align: middle;}
+ .normal_med_2 {background: #FFFFFF url("../img/bg.gif") repeat; color: #C1A4A4; font-size: 11pt; margin-left: 10px; font-weight: bold; vertical-align: middle;}
+ .normal_big {background: #FFFFFF; color: #7347AD; font-size: 12pt; margin-left: 10px; font-weight: bold; vertical-align: middle; text-align: center; }
+.note { background: #FFFFFF url("../img/bg.gif") repeat; color: #483D8B; font-weight: bold; font-size: 8pt; }
+.content {background: #FFFFFF url("../img/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 11pt; color: #333333;}
+.content_center {background: #FFFFFF url("../img/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 12px; color: #333333; text-align: center;}
+.content_center2 {background: #808080; font-family: tahoma; font-size: 12px; color: #FFFFFF; text-align: center; font-weight: bold;}
+
+
+a:link    { color:#7347AD}
+a:visited { color:#483D8B}
+a:active  {background: #E6E6FA; color:#333333}
+a:hover   {background: #E6E6FA; color:#333333}

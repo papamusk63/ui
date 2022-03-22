@@ -1,0 +1,59 @@
+body, table, p, div, td, th
+{
+	font-family: arial;
+	
+}
+
+body.top, body.right, body.left { 
+	background-image: url("../images/bg.gif");
+	background-repeat: repeat;
+}
+
+
+table
+{	
+	border: 0;
+	width: 100%;
+}
+
+img { border: 0; }
+.test_console { margin-left: 15; }
+.masterlog { margin-left: 15; }
+
+
+
+th { background: #FAF0E6; color: #8B0000; font-weight: bold; font-size: 12pt; }
+td { background: #F5F5F5; color: #483D8B; font-size: 12pt; }
+
+
+.title	
+{	
+	background: #FAF0E6;
+	color: #FF4500; font-weight: bold; font-size: 22pt; 
+}
+.title_2
+{
+	background: #FAF0E6;
+	color: #8B0000; font-weight: bold; font-size: 14pt; 
+}
+.title_3
+{
+	background: #F5F5F5;
+	color: #8B0000; font-weight: bold; font-size: 12pt;  
+}
+
+.sub_title { color: #8B0000; font-weight: bold; font-size: 12pt; width: 30%; }
+.sub_title_2 { color: #333333; font-size: 12pt; width: 30%; }
+.sub_content { color: #483D8B; font-size: 12pt; width: 70%;}
+
+
+.top, .right, .left {	background: #FFFFFF url("../images/bg.gif") repeat ; color: #333333; font-weight: bold; font-size: 12pt; margin-left: 10px; }
+
+
+a:link    { color:#483D8B}
+a:visited { color:#8B0000}
+a:active  {background: #E6E6FA; color:#333333}
+a:hover   {background: #E6E6FA; color:#333333}
+
+
+

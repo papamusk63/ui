@@ -1,0 +1,12 @@
+###############
+# Nov 1, 2005 #
+#-------------#
+# http://172.22.184.103/results/2005/Month_10/Oct_30/19:35.Madhuranath.Ganugapati/
+# Cause: 	HUGE masterlog.txt 
+# Function: 	GetCompletionTime($url, $jobid)
+# Description: 	$lines = file ($masterfile)  reads the whole file into an array, 
+		therefore, buffer overflow kills the script.
+# Solution: 	N/A
+
+
+

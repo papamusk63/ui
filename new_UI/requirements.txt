@@ -1,0 +1,4 @@
+jinja2
+virtualenv
+flask
+mod_wsgi

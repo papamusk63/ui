@@ -1,0 +1,69 @@
+mvdcbts01 SITE NuageMv
+mvdcbts01 ACCESS public
+mvdcbts01 IP 135.227.66.38
+mvdcbts01 DESCRIPTION 7x50 SimPC  (shared-fabric mini flexibed w/NSG HW,2ndGen1RUSims,Virt capable)
+mvdcbts01 PROFILE  dataCenter
+mvdcbts01 GROUPS  dataCenter
+mvdcbts01 PHYSTOPO nsgBts
+mvdcbts01 SUBTOPO default
+mvdcbts01 ALLOW_PLATFORMS dctor dccc
+mvdcbts01 FLEXIBED nsgBts.params
+mvdcbts01 BOOT_TIME 500
+mvdcbts01 IMAGES boot i386 both i386 dccc boot i386 dccc cpm i386 both hops dccc vmdisk i386 dccc vmdk i386
+mvdcbts01 TOPFILE virtual.top
+
+mvdcbts02 SITE NuageMv
+mvdcbts02 ACCESS public
+mvdcbts02 IP 135.227.66.39
+mvdcbts02 DESCRIPTION 7x50 SimPC  (shared-fabric mini flexibed w/NSG HW,2ndGen1RUSims,Virt capable)
+mvdcbts02 PROFILE  dataCenter
+mvdcbts02 GROUPS  dataCenter
+mvdcbts02 PHYSTOPO nsgBts
+mvdcbts02 SUBTOPO default
+mvdcbts02 ALLOW_PLATFORMS dctor dccc
+mvdcbts02 FLEXIBED nsgBts.params
+mvdcbts02 BOOT_TIME 500
+mvdcbts02 IMAGES boot i386 both i386 dccc boot i386 dccc cpm i386 both hops dccc vmdisk i386 dccc vmdk i386
+mvdcbts02 TOPFILE virtual.top
+
+mvdcbts03 SITE NuageMv
+mvdcbts03 ACCESS public
+mvdcbts03 IP 135.227.66.9
+mvdcbts03 DESCRIPTION 7x50 SimPC  ( bootstrap w/NSGE202 HW )
+mvdcbts03 PROFILE  dataCenter
+mvdcbts03 GROUPS  dataCenter
+mvdcbts03 PHYSTOPO nsgBts
+mvdcbts03 SUBTOPO default
+mvdcbts03 ALLOW_PLATFORMS dctor dccc
+mvdcbts03 FLEXIBED nsgBts.params
+mvdcbts03 BOOT_TIME 500
+mvdcbts03 IMAGES boot i386 both i386 dccc boot i386 dccc cpm i386 both hops dccc vmdisk i386 dccc vmdk i386
+mvdcbts03 TOPFILE virtual.top
+
+mvdcbts04 SITE NuageMv
+mvdcbts04 ACCESS public
+mvdcbts04 IP 135.227.66.11
+mvdcbts04 DESCRIPTION 7x50 SimPC  ( bootstrap w/NSGE300 HW )
+mvdcbts04 PROFILE  dataCenter
+mvdcbts04 GROUPS  dataCenter
+mvdcbts04 PHYSTOPO nsgBts
+mvdcbts04 SUBTOPO default
+mvdcbts04 ALLOW_PLATFORMS dctor dccc
+mvdcbts04 FLEXIBED nsgBts.params
+mvdcbts04 BOOT_TIME 500
+mvdcbts04 IMAGES boot i386 both i386 dccc boot i386 dccc cpm i386 both hops dccc vmdisk i386 dccc vmdk i386
+mvdcbts04 TOPFILE virtual.top
+
+mvdcbts05 SITE NuageMv
+mvdcbts05 ACCESS public
+mvdcbts05 IP 135.227.66.12
+mvdcbts05 DESCRIPTION 7x50 SimPC  ( bootstrap w/NSGE306 HW )
+mvdcbts05 PROFILE  dataCenter
+mvdcbts05 GROUPS  dataCenter
+mvdcbts05 PHYSTOPO nsgBts
+mvdcbts05 SUBTOPO default
+mvdcbts05 ALLOW_PLATFORMS dctor dccc
+mvdcbts05 FLEXIBED nsgBts.params
+mvdcbts05 BOOT_TIME 500
+mvdcbts05 IMAGES boot i386 both i386 dccc boot i386 dccc cpm i386 both hops dccc vmdisk i386 dccc vmdk i386
+mvdcbts05 TOPFILE virtual.top

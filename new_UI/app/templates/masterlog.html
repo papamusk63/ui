@@ -1,0 +1,75 @@
+<html>
+<head>
+
+<script type="text/javascript">
+    function setCookie() {
+        // get the checkbox value
+        var checked = 0;
+        if (document.myform2.sub.checked) {
+            var checked = 1;
+        }
+        var cookieValue = checked;
+        // set the cookie
+        createCookie('SrGuiSubTest',cookieValue,0);
+        // reload the page with the new settings
+        javascript:location.reload(true);
+    }
+     function createCookie(name,value,days) {
+	    if (days) {
+		    var date = new Date();
+		    date.setTime(date.getTime()+(days*24*60*60*1000));
+		    var expires = "; expires="+date.toGMTString();
+	    }
+	    else var expires = "";
+        document.cookie = name+"="+value+expires+"; path=/";
+    }
+</script>
+
+<link rel="shortcut icon" href="http://{{ myhost }}/status/images/favicon.ico">
+<script language="JavaScript" src="{{ data.js_loc }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ data.css_loc }}">
+<title>[{{ data.host }}]: ".{{ data.loc_parts[4] }}."_".{{ data.loc_parts[2] }}."/".{{ data.loc_parts[5] }}."</title>
+</head><body>
+
+<table>
+    <tr>
+        <td class=content_center2><a href="http://{{ data.myhost }}/status/index.php" target="_top" style="color: #FFFFFF; font-weight: bold" title="Status Page">Status</a></td>
+
+    {% if data.icon == "" %}
+        <td class=content_center2><a href="http://{{ data.myhost }}/status/result.php" target="_top" style="color:#FFFFFF; font-weight: bold">Result Index</a>&nbsp;&nbsp;({{ data.note }})</td>"
+    {% else %}
+        <td class=content_center2><a href="http://{{ myhost }}/status/result.php" target="_top" style="color:#FFFFFF; font-weight: bold">Result Index</a>&nbsp;&nbsp;(<a href="/jobs/jobs_index.php\" style="color: #FFFFFF" title="Bed Notes"><img src={{ data.icon }}>{{ data.note }})</td>
+    {% endif %}
+
+        <td class=content_center2><a href="http://{{ data.myhost }}/jobs/jobs_index.php" target="_top" style="color: #FFFFFF; font-weight: bold" title="Jobs">Jobs</a></td>
+    </tr>
+    <tr>
+        <td class=normal_med align=center colspan=3><i>[{{ data.host }}]: ".{{ data.loc_parts[4] }}."_".{{ data.loc_parts[2] }}."/".{{ data.loc_parts[5] }}."</i></td>
+    </tr>
+</table>
+
+<hr><table border=1><tr><td class=normal><a href={{ data.test_dir_url }} title={{ data.test_dir_url }} ><img src={{ data.img_loc }}/img/node.jpg /></a></td>
+
+{% set sim_logs = natksort(data.sim_log}) %}
+{% for product,nodes in sim_logs.items() %}
+        <td class=title_bar>{{ product }}</td>
+        {% set nodes = natksort(nodes) %}
+        {% for node,cards in nodes.items() %}
+            <td class=title_bar>{{ node }}</td><td class=_small>
+            {% set cards = natksort(cards) %}
+            {% for card,num in cards.items() %}
+                # keep these guys for later
+                {% if num == 1 %}
+                    {% set the_url = {{ data.test_dir_url ~ product ~ "." ~ node ~ "." ~ card ~ ".txt" }} %}
+                {% else %}
+                    {% set the_url = {{ data.test_dir_url ~ product ~ "." ~ node ~ "." ~ card ~ ".html" }} %}
+                {% endif %}
+                    <a href={{ the_url }} title={{ the_url }}>{{ card }}</a> 
+            {% endfor %}
+            </td>
+        {% endfor %}
+
+{% endfor %}
+</tr></table><hr>
+
+<br><br></body></html>

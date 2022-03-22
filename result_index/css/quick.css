@@ -1,0 +1,63 @@
+
+body, table, p, div, td, th
+{
+	font-family: arial;
+}
+body.top, body.right, body.left {
+        background-image: url("../images/bg.gif");
+        background-repeat: repeat;
+}
+
+/* table */
+table
+{	
+	border: 0;
+/*	width: 100%;*/
+}
+
+/* for test_console & masterlog */
+img { border: 0; }
+
+
+/* td & th */
+th { background: #FAF0E6; color: #8B0000; font-weight: bold; font-size: 12pt; }
+td { background: #F5F5F5; color: #483D8B; font-size: 12pt; }
+.flat { background: #FFFFFF; }
+
+a:link    { color:#483D8B}
+a:visited { color:#000000}
+a:active  {background: #E6E6FA; color:#333333}
+a:hover   {background: #E6E6FA; color:#333333}
+
+a.tb:link    { color:#FFFFFF}
+a.tb:visited { color:#FFFFFF}
+a.tb:active  {background: #FFFFFF; color:#FF3300}
+a.tb:hover   {background: #FFFFFF; color:#FF3300}
+
+
+.tb_paused {background: #FFCC00; color: #FFFFFF; font-weight: bold; font-size: 12pt; margin-left: 10px; width:100px; text-align: center;}
+.tb_idle {background: #339900; color: #FFFFFF; font-weight: bold; font-size: 12pt; margin-left: 10px; width: 100px; text-align: center;}
+.tb_down {background: #F5F5F5; color: #666666; font-weight: bold; font-size: 12pt; margin-left: 10px; text-align: center;}
+.message {background: #FFFFFF url("../images/bg.gif") repeat; color: #2A65FD; font-weight: bold; font-size: 8pt; margin-left: 10px; vertical-align: middle;}
+
+ .titleFontClass {font-family: Arial, sans-serif; font-size: 12px; color: #666666; background-color: #ddddff; width: 200px}
+
+ .title_bar {font-family: Arial, sans-serif; font-size: 12px; color: #666666; background-color: #ddddff; text-align: center;}
+.tb_busy {background: #FF3300; color: #FFFFFF; font-size: 8pt; margin-left: 10px; text-align: center;}
+.tb_paused_s {background: #FFCC00; color: #FFFFFF; font-size: 8pt; margin-left:10px; text-align: center;}
+.tb_idle_s {background: #339900; color: #FFFFFF; font-size: 8pt; margin-left: 10px; text-align: center;}
+
+
+ .tb_inprogress {background: #FF3300; color: #FFFFFF; font-weight: bold; font-size: 12pt; margin-left: 10px; width: 100px; text-align: center;}
+ .test_name {background: #FFFFFF url("../images/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 12px; color: #333333; width: 250px; text-align: center;}
+ .time_left {background: #FFFFFF url("../images/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 12px; color: #333333;  text-align: center;}
+ .args {background: #FFFFFF url("../images/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 11px; color: #333333; width: 200px; text-align: center;}
+ .notes {background: #FFFFFF url("../images/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 11px; color: #333333; width: 200px; text-align: center;}
+ .version {background: #FFFFFF url("../images/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 11px; color: #333333; width: 100px; text-align: center;}
+ .masterlog {background: #FFFFFF url("../images/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 12px; color: #333333; text-align: center; }
+ .job_waiting {background: #FFFFFF url("../images/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 12px; color: #333333; text-align: center; }
+
+  .textFontClass {background: #FFFFFF url("../images/bg.gif") repeat; color: #333333; font-weight: bold; font-size: 8pt; margin-left: 10px; vertical-align: middle;}
+  .textFontClass2 {font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; color: #000000; background-color: #f5f5ff;}
+  ._small {background: #FFFFFF url("../images/bg.gif") repeat; color: #333333; font-size: 8pt; margin-left: 10px; vertical-align: middle;}
+._small_title {font-family: Arial, sans-serif; font-size: 10px; color: #666666; background-color: #ddddff; text-align: center;}

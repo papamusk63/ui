@@ -1,0 +1,50 @@
+
+body, table, p, div, td, th
+{
+	font-family: arial;
+}
+
+/* table */
+table
+{	
+	border: 0;
+	width: 100%;
+}
+
+/* for test_console & masterlog */
+img { border: 0; }
+
+/* td & th */
+th { background: #FAF0E6 center; color: #8B0000; font-weight: bold; font-size: 12pt; }
+/*td { background: #F5F5F5 center; color: #483D8B; font-size: 12pt; }*/
+td {font-family: Arial, sans-serif; font-size: 12px; color: #333333; background-color: #F5F5F5; text-align: center;}
+.note { color: #483D8B; font-weight: bold; font-size: 8pt; }
+.star { color: #8B0000; font-weight: bold; font-size: 12pt; }
+.check { margin-left: 15px; }
+.dir   { margin-left: 15px; }
+
+/* big  titles */
+.title	
+{	
+	background: #FAF0E6;
+	color: #FF4500; font-weight: bold; font-size: 18pt; 
+}
+.top {   background: #FFFFFF url("../images/bg.gif") repeat ; color: #333333; font-size: 14px; margin-left: 20px; text-align: left;}
+
+/* size of each column */
+.jobid	{ width: 30%;  }
+.args	{ width: 20%;   }
+.files		{ width: 25%;  }
+
+a:link    { color:#483D8B}
+a:visited { color:#8B0000}
+a:active  {background: #E6E6FA; color:#333333}
+a:hover   {background: #E6E6FA; color:#333333}
+
+ .title_bar {font-family: Arial, sans-serif; font-size: 12px; color: #666666; background-color: #ddddff; text-align: center;}
+
+
+ .title_bar {font-family: Arial, sans-serif; font-size: 12px; color: #666666; background-color: #ddddff; text-align: center;}
+ .content_left {background: #FFFFFF url("../images/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 12px; color: #333333; text-align: left;}
+ .content_center {background: #FFFFFF url("../images/bg.gif") repeat; font-family: Arial, sans-serif; font-size: 12px; color: #333333; text-align: center;}
+

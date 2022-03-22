@@ -1,0 +1,142 @@
+<html>
+   <head>
+      {% include 'scripts.html' %}
+      <title>[{{ data.host }}]: Jobs</title>
+   </head>
+   <body>
+      {% include 'head.html' %}
+      <table width=100%>
+         <tr>
+            <td class=content_2 align=center colspan=2><input type=submit {% include 'create_bed_note.html' %} value='Create Bed Note'></td>
+         </tr>
+         {% for filename,filedata in data.allfiles %}
+         <tr>
+            <td class=content_2 align=left><img src=../status/images/sticky-notes32.png>&nbsp; <a href=http://{{ myhost }}/jobs/{{ filename }}>{{ filename }}</a></td>
+            <td class=contentRed><form style=display:inline action=http://{{ data.running_ip }}/status/new_UI/app/cgi_scripts/remove_note.cgi method=GET onClick="return confirm('Are you sure?');"><input type=hidden name=user value={{ data.user }}><input type=hidden name=host_ip value={{ data.myhost }}><input type=hidden name=host value={{ data.host }}><input type=hidden name=filen value={{ filename }}><input type=hidden name=content value="{{ filedata }}"><input type=submit value="Remove Bed Note"></form>&nbsp;{{ filedata }}</td>
+         </tr>
+         {% endfor %}
+         {% for filename,filedata in data.jobs_files_items.items() %}
+         {% if filename == "pause" %}
+         <div id="origpause" style="display:none">{{ filedata.pauseContentOrig }}</div>
+         <tr>
+            <td class=content_2 align=left><img src=../status/images/file.gif> &nbsp; <a href=http://{{ data.myhost }}/jobs/{{ filename }}>{{ filename }}</a></td>
+            <td style="background: #F5F5F5; color: #FF4500; font-family: tahoma, sans-serif; font-size: 11pt; margin-left: 10px; text-align: center" align=center> <input type=submit {% include 'change_pause_reason.html' %} value='Change Pause Reason'> &nbsp; <input type=submit {% include 'unpause.html' %} value=Unpause><br>{{ filedata.pause_content | safe }}</td>
+         </tr>
+         {% else %}
+         {% if filename == "powerstat" and data.is_inprogress == false %}
+         {% if filedata.c == "on" %}
+         {% set pwr_frm = "
+         <table>
+            <tr>
+               <td>&nbsp;</td>
+               <td width=\"50\"><form action=http://{running_ip}/status/new_UI/app/cgi_scripts/power_off.cgi method=GET onClick=\"return confirm('Are you sure?');\"><input type=hidden name=user value={user}><input type=hidden name=host_ip value={myhost}><input type=hidden name=host value={host}><input type=submit value=\"Turn Power OFF\"></form></td>
+               <td>&nbsp;</td>
+            </tr>
+         </table>
+         " %}
+         {% else %}
+         {% set pwr_frm = "
+         <table>
+            <tr>
+               <td>&nbsp;</td>
+               <td width=\"50\"><form action=http://{running_ip}/status/new_UI/app/cgi_scripts/power_on.cgi method=GET onClick=\"return confirm('Are you sure?');\"><input type=hidden name=user value={user}><input type=hidden name=host_ip value={myhost}><input type=hidden name=host value={host}><input type=submit value=\"Turn Power ON\"></form></td>
+               <td>&nbsp;</td>
+            </tr>
+         </table>
+         " %}
+         {% endif %}
+         {% else %}
+         {% set pwr_frm = "" %}
+         {% endif %}
+         <tr>
+            <td class=content_2 align=left><img src=../status/images/file.gif> &nbsp; <a href=http://{{ data.myhost }}/jobs/{{ filename }}>{{ filename }}</a></td>
+            <td class=content_2 align=center> {{ filedata.c }} {{ pwr_frm | safe}}</td>
+         </tr>
+         {% endif %}
+         {% endfor %}
+         {% if data.bednotes_exist == true %}
+         <tr>
+            <td class=content_2 align=left><img src=../status/images/file.gif> &nbsp; <a href=http://{{ data.myhost }}/jobs/.bednotes>Sticky Note History</a></td>
+            <td class=content_2 align=center></td>
+         </tr>
+         {% endif %}
+         {% if data.pause_file_exists == false %}
+         <tr>
+            <td class=content_2 align=center colspan=2><input type=submit onclick="return overlib('<form action=http://{{ data.running_ip }}/status/new_UI/app/cgi_scripts/pause_bed.cgi method=GET onsubmit=\'return check_comment(this)\'><table border=1 width=500px><tr><input type=hidden name=host value={{ data.host }}><input type=hidden name=user value={{ data.user }}><input type=hidden name=host_ip value={{ data.myhost }}><input type=hidden name=immediate value={{ data.immediate }}><td class=title_bar width=200>Reason: </td><td class=content_2><input type=text size=100 name=pause_reason></td></tr><tr><td class=content colspan=3><input type=submit value=OK></td></tr></table></form>',TEXTFONTCLASS,'textFontClass',CAPTIONFONTCLASS,'capfontClass2',CLOSEFONTCLASS,'capfontclass2',CAPTION,'Details',STICKY);" onclick="return nd();" value=Pause></td>
+         </tr>
+         {% endif %}
+         {% if data.is_inprogress == true %}
+         <tr>
+            <td class=content_2 width=250px align=left><img src=../status/images/file.gif> &nbsp; <a href=http://{{ data.myhost }}/jobs/{{ data.inprogress }}>{{ data.inprogress }}</a></td>
+            <td class=content> &nbsp; </td>
+         </tr>
+         {% endif %}
+      </table>
+      <hr>
+      {% if data.is_inprogress == true %}
+      <div class=top>
+         Test Running  -  please reload page before killing any tests
+         <table border=1>
+            <tr>
+               <th class=date_button width=25%>Test Running</th>
+               <th class=date_button width=5%>Log</th>
+               <th class=date_button width=10%>Load Version</th>
+               <th class=date_button width=30%>Arguments</th>
+               <th class=date_button width=30%>Results (Pass/Fail/Skip)</th>
+            </tr>
+            {{ data.inprogress_detail | safe}}
+            {% if data.exists_completedTestList == false %}
+            {% if data.framework == 'pygash' %}
+            <tr>
+               <td class=content><input type=submit {% include 'ks_nuclear.html' %} name=Kill value=Kill ><input type=submit {% include 'ks_nuclear.html' %} name=Nuclear_Kill value=Nuclear_Kill ></td>
+               {{ data.msg | safe }}
+               {% else %}
+            <tr><form action=http://{{ data.running_ip }}/status/new_UI/app/cgi_scripts/force_kill.cgi method=GET>
+            <tr>
+               <input type=hidden name=user value={{ data.user }}><input type=hidden name=host_ip value={{ data.myhost }}><input type=hidden name=host value={{ data.host }}><input type=hidden name=testid value={{ data.jobid }}><input type=hidden name=resultid value={{ data.result_id }}><input type=hidden name=entry value={{ data.entry }}>
+               <td><input type=submit name="Force Kill" value="Force Kill" ></form></td>
+               "
+               <td class=content colspan=4><font color=red><b>* Force Kill</b>: aggressive killing (during booting process). </font></td>
+            </tr>
+            {% endif %}
+            {% else %}
+            <tr></tr>
+            <td class=content><input type=submit {{ data.output }} name=Kill value=Kill ><input type=submit {% include 'ks_nuclear.html' %} name=Nuclear_Kill value=Nuclear_Kill ></td>
+            {{ data.msg | safe }}
+            {% endif %}
+         </table>
+      </div>
+      {% endif %}
+      {% if data.test_in_jobs_files == true %}
+      <BR>
+      <div class=top>
+         Test(s) Waiting  -  please reload page before deleting any jobs
+         <BR><BR><input id="slall" type=checkbox onClick="javascript:checkAll('jobsform');">Select All Tests</a><BR>
+         <form id=jobsform action=http://{{ data.running_ip }}/status/new_UI/app/cgi_scripts/remove_test.cgi method=GET>
+         <table border=1>
+            <tr>
+               <th class=date_button width=5%>Remove/Move</th>
+               <th class=date_button width=25%>Test Waiting</th>
+               <th class=date_button >Load Version</th>
+               <th class=date_button >Args</th>
+            </tr>
+            {% endif %}
+            {% for count in range(1,data.jobs_list_length+1) %}
+            {% set args,version,test = data.jobs_list[count-1] %}
+            <tr>
+               <td class=content><input type=checkbox name=testid_{{ count }} value={{ test }}></td>
+               <td class=content><a href=http://{{ data.myhost }}/jobs/{{ test }}>{{ test }}</a></td>
+               <td class=content>{{ version }}</td>
+               <td class=content>{{ args }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+               <input type=hidden name=user value={{ data.user }}><input type=hidden name=host_ip value={{ data.myhost }}><input type=hidden name=host value={{ data.host }}>
+               <td class=content colspan=4><input type=submit name=mremove value=Remove>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id=movebutton type=submit name=mremove value=Move> To Testbed: <input type=text size=20 name=totestbed value="" onkeypress="return movejob(event)"></td>
+            </tr>
+         </table>
+         </form>
+      </div>
+      <BR><BR>
+   </body>
+</html>
