@@ -1,0 +1,45 @@
+
+<html>
+    <head>
+    <title>Login to Testbed GUIs</title>
+    </head>
+    <body bgcolor="white" text="black">
+    <p>
+    <form name="myForm" method="post">
+    <?php if (getLocale() == "NuageMv" or getLocale() == "NuageAnt" or getLocale() == "NuageRa" or getLocale() == "NuageBa" or getLocale() == "NuageBt") { ?>
+    <div style="margin-left:auto; margin-right:auto; margin-top:50px; width:500px; background-color:#FFFAF2">
+    <font size=+1><b>Nuage regression testbed GUI Login</b></font>
+    <br><br>
+    Enter your CSL and Nuage password <br><i>(alternative: use your CVS/DTS/7750Admin credentials)</i>
+    <br><br>
+    <div style="width:250px">
+    <div style="text-align:right" >CSL:<input name="access_username" type="text" size=12></div>
+    <div style="text-align:right" >Nuage Password:<input name="access_password" type="password" size=12></div>
+    </div>
+    <br>
+    <div style="text-align:center"><input style="width:120px" name="submit" type="submit" value="Submit"></div>
+    <br>
+    <div style="text-align:center"><bold><font color="Red" size=4><?php echo $msg ?></font></bold></div>
+    </div>
+    <?php }else{ ?>
+    <font size=+1>7x50/7710 Regression Testbed GUI Login</font>
+    <br><br>
+    Enter Username and Password (use your CVS/DTS/7750Admin credentials)
+    <br><br>
+    <table cellspacing=0 cellpadding=0 width=400 align="left">
+    <tr><td>Username:</td><td>
+    <tr><td><input name="access_username" type="text" size=12></td></tr>
+    <tr><td>Password: </td><td>
+    <tr><td><input name="access_password" type="password" size=12></td></tr>
+    <tr><td></td></tr>
+    <br><br>
+    <tr><td colspan=2 ><input name="submit" type="submit" value="Submit"></td></tr>
+    <tr><td><bold><font color="Red" size=4><?php echo $msg ?></font></bold></td></tr>
+    </table>
+    <?php } ?>
+    </form>
+    <script type="text/javascript">
+    document.myForm.access_username.focus();
+    </script>
+    </body>
+    </html>
