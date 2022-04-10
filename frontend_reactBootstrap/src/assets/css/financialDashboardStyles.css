@@ -1,0 +1,269 @@
+body {
+  background-color: #303030 !important;
+}
+.custom-container {
+  max-width: 100% !important;
+}
+.show-sidebar-toggle-area {
+  position: fixed !important;
+}
+/* Dashboard Start */
+.btn-menu {
+  background-color: rgb(25, 185, 154);
+  color: white;
+  margin-left: 13px;
+  margin-top: 10px;
+  border-radius: 0;
+}
+.show-sidebar-toggle-area {
+  top: 110px !important;
+}
+.dashboard-toolbar {
+  background-color: #222a42!important;
+  margin-left: -2px;
+  margin-right: -2px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+.financial-dashboard-toolbar {
+  font-weight: normal !important; 
+}
+.news-dashboard-toolbar {
+  font-weight: normal !important; 
+  margin-left: 50px;
+}
+.dashboard-toolbar-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  justify-content: space-between;
+}
+.news-toolbar-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  /* justify-content: space-between; */
+  display: flex;
+  margin-left: 20px;
+}
+.financial-dashboard-title {
+  display: flex;
+  align-items: center;
+}
+.dashboard-toolbar-main {
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 30px;
+  border-top: 1px solid rgb(245, 245, 245);
+}
+.dashboard-toolbar-main .input-group {
+  margin: 0 !important;
+}
+.dashboard-toolbar-main .input-group-append {
+  border: 0 !important;
+}
+.btn-lazy {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  white-space: normal;
+  border: 0;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: rgb(25, 185, 154);
+  line-height: 1.5;
+  margin: 0;
+  color: white;
+  border-radius: 0;
+  font-size: 15px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.dashboard-navbar {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 16px;
+}
+.dashboard-navbar li {
+  border-left: 1px solid rgb(42,63,84);
+  border-top: 1px solid rgb(42,63,84);
+  border-bottom: 1px solid rgb(42,63,84);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  cursor: pointer;
+}
+.dashboard-navbar li.selected {
+  background-color: rgb(42, 63, 84);
+  color: white;
+}
+.dashboard-navbar li i {
+  margin-right: 10px;
+}
+.dashboard-navbar li:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.dashboard-navbar li:last-child {
+  margin-right: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-right: 1px solid rgb(42,63,84);
+}
+.chart-area {
+  margin-bottom: 30px;
+}
+.group-bar-chart {
+  max-width: calc(100% / 3 - 3px);
+  padding-left: 0;
+  padding-right: 0;
+  border: 2px solid #525f7f;
+  height: 458px;
+}
+.chart-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+.chart-title-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  align-items: center;
+  color: white;
+}
+.chart-title-area div:first-child {
+  width: 25px;
+  height: 15px;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+.chart-title-area span {
+  padding-top: 1px;
+  margin-left: 5px;
+}
+.chart-toolbar-select option {
+  color: #495057 !important;
+}
+.apexcharts-text {
+  fill: white;
+}
+.dashboard-chart-tool {
+  display: flex;
+  align-items: center;
+}
+.dashboard-chart-tool li {
+  border-left: 1px solid rgb(219,219,219);
+  border-top: 1px solid rgb(219,219,219);
+  border-bottom: 1px solid rgb(219,219,219);
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  cursor: pointer;
+}
+.dashboard-chart-tool li:first-child {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.dashboard-chart-tool li:last-child {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-right: 1px solid rgb(219,219,219);
+  margin-right: 10px;
+}
+.dashboard-graph-types {
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.dashboard-graph-types ul li {
+  border-left: 1px solid rgb(219,219,219);
+  background-color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  cursor: pointer;
+}
+.dashboard-graph-types li:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.dashboard-graph-types li:last-child {
+  margin-right: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-right: 1px solid rgb(219,219,219);
+}
+.dashboard-graph-types li,
+.dashboard-chart-tool li {
+  color: #303030;
+}
+.dashboard-graph-types .selected {
+  background-color: rgb(25, 185, 154);
+  color: white;
+}
+.financial-data-table {
+  margin-top: 0px !important;
+  padding-top: 0 !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.financial-data-table .financial-table-body-1 {
+  background-color: rgb(111, 58, 53) !important;
+}
+.financial-data-table .financial-table-body-2 {
+  background-color: rgb(86, 85, 33) !important;
+}
+.financial-data-table .financial-table-body-3 {
+  background-color: rgb(44, 66, 21) !important;
+}
+.financial-data-table .financial-table-head {
+  height: 60px !important;
+}
+.financial-data-table th {
+  cursor: pointer !important;
+}
+.select-option {
+  z-index: 9000 !important;
+  color: #303030 !important;
+}
+.react-stockchart text {
+  fill: white;
+}
+.react-stockcharts-axis-domain {
+  stroke: white;
+}
+.financial-dashboard-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.no-data {
+  color: white;
+  padding-left: 15px;
+}
+.filter-types-section {
+  display: flex;
+  justify-content: center;
+}
+/* Dashboard End */

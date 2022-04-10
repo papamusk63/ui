@@ -1,0 +1,87 @@
+.watch-list-item-container {
+    width: 100%;
+    height: 100%;
+}
+
+.watch-list-item-header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 55%;
+    background-color: #303030;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.background-green {
+    background-color: green;
+}
+
+.background-light-red {
+    background-color: purple;
+}
+
+.hunter-scanner-page-chart-area {
+    position: relative;
+    height: 30px;
+    width: 150px;
+    max-width: 150px;
+}
+
+.hunter-scanner-page-chart-area-wrap {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+}
+
+.hunter-watch-list-item-wrap {
+    overflow-y: auto;
+}
+
+.background-light-green {
+    background-color: #90EE90;    
+}
+
+.background-dark-green {
+    background-color: #006400;    
+}
+
+.background-light-red {
+    background-color: #ED0800;    
+}
+
+.background-dark-red {
+    background-color: #8B0000;    
+}
+
+.background-pink-color {
+    background-color: #800080;
+}
+
+.background-orange-color {
+    background-color: #FFA500;
+}
+
+.background-light-green-color {
+    background-color: #00FF00;
+}
+
+.background-red-color {
+    background-color: #FF0000;
+}
+
+.hunter-custom-table-chart-th {
+    min-width: 200px;
+    text-align: center;
+}
+
+.hunter-multi-select-checkboxes 
+button {
+    width: 150px;
+    border-radius: 3px;
+}
+
+.market-select-options {
+    max-width: 30px;
+}
